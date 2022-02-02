@@ -1,0 +1,31 @@
+@Metadata.layer: #CORE
+annotate view ZHUNGXA_C_FLIGHT
+    with 
+{
+    @UI.facet: [ { id:            'Flight',
+                     purpose:       #STANDARD,
+                     type:          #IDENTIFICATION_REFERENCE,
+                     label:         'Flight',
+                     position:      10 } ]
+    @UI: { lineItem:        [ { position: 10 } ],
+         identification:  [ { position: 10 } ]  }
+    FlightDate;
+    @UI: { lineItem:        [ { position: 20 } ],
+         identification:  [ { position: 20 } ]  }
+    Price;
+    @UI: { lineItem:        [ { position: 30 } ],
+         identification:  [ { position: 30 } ]  }
+    CurrencyCode;
+    @UI: { lineItem:        [ { position: 40 } ],
+         identification:  [ { position: 40 } ]  }
+    PlaneTypeId;
+    @UI: { lineItem:        [ { position: 50 } ],
+         identification:  [ { position: 50 } ]  }
+    SeatsMax;
+    @UI: { lineItem:        [ { position: 60 } ],
+         identification:  [ { position: 60 } ]  }
+    SeatsOccupied;
+    @UI: { lineItem:        [ { position: 70, label : 'Occupied%', criticality: 'Status' } ],
+         identification:  [ { position: 70, label : 'Occupied%', criticality: 'Status' } ]  }
+    PercentageS;
+}

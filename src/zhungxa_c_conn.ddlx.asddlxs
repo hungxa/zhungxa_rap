@@ -1,0 +1,48 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Connection',
+                typeNamePlural: 'Connections',
+                title: { type: #STANDARD, label: 'Connection', value: 'ConnectionId' } } }
+annotate view ZHUNGXA_C_CONN
+    with 
+{
+    @UI.facet: [ { id:              'Connection',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Connection',
+                 position:        10 },
+               { id:              'Flight',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Flight',
+                 position:        20,
+                 targetElement:   '_Flight'} ]
+                 
+    @UI: { lineItem: [ { position: 10 } ],
+         identification: [ { position: 10 } ],
+         selectionField: [ { position: 10 } ] }
+    CarrierId;
+    @UI: { lineItem: [ { position: 20 } ],
+         identification: [ { position: 20 } ],
+         selectionField: [ { position: 20 } ] }
+    ConnectionId;
+    @UI: { lineItem: [ { position: 30 } ],
+         identification: [ { position: 30 } ] }
+    AirportFromId;
+    @UI: { lineItem: [ { position: 40 } ],
+         identification: [ { position: 40 } ] }
+    AirportToId;
+    @UI: { lineItem: [ { position: 50 } ],
+         identification: [ { position: 50 } ] }
+    DepartureTime;
+    @UI: { lineItem: [ { position: 60 } ],
+         identification: [ { position: 60 } ] }
+    ArrivalTime;
+    @UI: { lineItem: [ { position: 70 } ],
+         identification: [ { position: 70 } ] }
+    Distance;
+    @UI: { lineItem: [ { position: 80 } ],
+         identification: [ { position: 80 } ] }
+    DistanceUnit;
+    
+}

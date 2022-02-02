@@ -1,0 +1,56 @@
+managed implementation in class zbp_hungxa_i_conn unique;
+strict;
+
+define behavior for ZHUNGXA_I_CONN //alias <alias_name>
+persistent table /DMO/CONNECTION
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  field ( mandatory : create ) CarrierId, ConnectionId;
+  field ( readonly : update ) CarrierId, ConnectionId;
+
+  association _Flight { create; }
+
+  mapping for /dmo/connection corresponding
+  {
+    CarrierId = carrier_id;
+    ConnectionId = connection_id;
+    AirportFromId = airport_from_id;
+    AirportToId = airport_to_id;
+    DepartureTime = departure_time;
+    ArrivalTime = arrival_time;
+    DistanceUnit = distance_unit;
+  }
+}
+
+define behavior for ZHUNGXA_I_FLIGHT //alias <alias_name>
+persistent table /dmo/flight
+lock dependent by _Connection
+authorization dependent by _Connection
+//etag master <field_name>
+{
+  update;
+  delete;
+
+  field ( readonly ) CarrierId, ConnectionId;
+  field ( readonly : update ) FlightDate;
+  field ( features : instance ) Price;
+
+  association _Connection;
+
+  mapping for /dmo/flight corresponding
+  {
+    CarrierId = carrier_id;
+    ConnectionId = connection_id;
+    FlightDate = flight_date;
+    CurrencyCode = currency_code;
+    PlaneTypeId = plane_type_id;
+    SeatsMax = seats_max;
+    SeatsOccupied = seats_occupied;
+  }
+}

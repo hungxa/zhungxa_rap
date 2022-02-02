@@ -1,0 +1,19 @@
+projection;
+strict;
+
+define behavior for ZHUNGXA_C_CONN //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Flight { create; }
+}
+
+define behavior for ZHUNGXA_C_FLIGHT //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _Connection;
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for ZHUNGXA_C_CONN'
+define service ZHUNGXA_CONN_UI {
+  expose ZHUNGXA_C_CONN;
+  expose ZHUNGXA_C_FLIGHT;
+}
